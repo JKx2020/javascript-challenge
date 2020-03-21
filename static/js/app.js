@@ -2,7 +2,6 @@
 
 // pulls in data from data.js
 var tableData = data;
-console.log(tableData);
 
 // create a variable to reference the table body from the html
 var tbody = d3.select("tbody");
@@ -32,7 +31,14 @@ button.on("click", function() {
     console.log("The user input date is:", userInputDate);
 
     //filter by the input date
+    
     var filteredData = tableData.filter(sighting => sighting.datetime === userInputDate);
+
+    //add pop-up if no sightings on user date input
+    if (filteredData.length === 0) {
+        d3.selectAll("th").remove();
+        var row = tbody.append("th").text("The aliens did not show themselves on that day.");
+    };
 
     console.log(filteredData);
 
