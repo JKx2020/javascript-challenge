@@ -10,6 +10,13 @@ body {
   margin: 0;
 }
 
+/* link */
+a {
+  font-size: large;
+  color: darkred;
+}
+
+
 /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
 .wrapper {
   position: relative;
@@ -53,6 +60,12 @@ body {
 }
 
 /* Adding styles to the aside and filter form */
+.btn {
+  border-color: black;
+  background-color: rgb(41, 41, 85);
+  margin: 5px;
+}
+
 .ufo-form {
   margin-top: 50px;
 }
@@ -223,3 +236,5 @@ select {
     opacity: 1;
   }
 }
+
+
