@@ -2,12 +2,13 @@
 
 // pulls in data from data.js
 var tableData = data;
+console.log(tableData);
 
 // create a variable to reference the table body from the html
 var tbody = d3.select("tbody");
 
 //loop through the data file objects and append tr & td to the tbody with the data object data
-data.forEach(sighting => {
+tableData.forEach(sighting => {
     //set row variable and append the table row before you loop through the objects data 
     var row = tbody.append("tr");
     //loop through object data and append the table
@@ -23,15 +24,24 @@ data.forEach(sighting => {
 //Select the Filter Table button
 var button = d3.select("button");
 
-//Add listener
+//Add listener to button and record the user input
 button.on("click", function() {
-    // Select the input element where the user will add in the filter date
-    //get the value property of the input element
-    var input = d3.select("#datetime").property("value");
-    console.log(input);
 
-    //set filter to the input value
-    var filteredData = data.filter(dateInput => data.Date === input);
+    //get the user input date
+    var userInputDate = d3.select("#datetime").property("value");
+    console.log("The user input date is:", userInputDate);
+
+    //filter by the input value
+    var filteredData = tableData.filter(sighting => sighting.datetime === userInputDate);
+
+    console.log(filteredData);
+    
+    //see filtered data
+    filteredData.forEach(data => {
+        Object.entries(filteredData).forEach(([key, value]) => {
+            console.log( value);
+        });
+    });
 });
 
 
