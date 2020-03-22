@@ -18,6 +18,7 @@ tableData.forEach(sighting => {
 })
 
 
+
 ////UPDATE FILTER SO IT TAKES USER INPUT AND FILTERS 
 
 //Select the Filter Table button
@@ -34,7 +35,7 @@ button.on("click", function() {
     
     var filteredData = tableData.filter(sighting => sighting.datetime === userInputDate);
 
-    //add pop-up if no sightings on user date input
+    //add message if no sightings on user date input
     if (filteredData.length === 0) {
         d3.selectAll("th").remove();
         var row = tbody.append("th").text("The aliens did not show themselves on that day.");
